@@ -2,7 +2,7 @@ import "./TodoList.css";
 import TodoItem from "./TodoItem.js";
 import { useState } from "react";
 
-const TodoList = ({ todo }) => {
+const TodoList = ({ todo, onUpdate }) => {
   const [search, setSearch] = useState("");
   const onChangeSearch = (e) => {
     setSearch(e.target.value);
@@ -25,7 +25,7 @@ const TodoList = ({ todo }) => {
       />
       <div className="list_wrapper">
         {getSearchResult().map((it) => (
-          <TodoItem key={it.id} {...it} />
+          <TodoItem key={it.id} {...it} onUpdate={onUpdate} />
         ))}
       </div>
     </div>

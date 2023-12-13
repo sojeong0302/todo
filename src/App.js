@@ -41,11 +41,18 @@ function App() {
     idRef.current += 1;
   };
 
+  const onUpdate = (targetId) => {
+    setTodo(
+      todo.map((it) =>
+        it.id === targetId ? { ...it, isDone: !it.isDone } : it
+      )
+    );
+  };
   return (
     <div className="App">
       <Header />
       <TodoEditor onCreate={onCreate} />
-      <TodoList todo={todo} />
+      <TodoList todo={todo} onUpdate={onUpdate} />
     </div>
   );
 }

@@ -8,6 +8,7 @@
 
 .TodoItem .checkbox_col {
   width: 20px;
+  accent-color: rgb(184, 131, 184);
 }
 
 .TodoItem .title_col {

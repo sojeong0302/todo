@@ -1,5 +1,10 @@
-# todo
+# 💜 todo
 
+## Site
+<a href="https://velog.io/@zaman17"><img src="https://img.shields.io/badge/todo-ABA5D1?style=flat-square&logo=checkmarx&logoColor=white"/></a>
+
+</br>
+ 
 ## Introduction
 
 '한 입 크기로 잘라 먹는 리액트' Project2 [할 일 관리] 앱 만들기
@@ -35,3 +40,8 @@
 - test: 테스트 관련 코드 추가 또는 수정
 
 - chore (maintain): 유지보수를 위한 작업, 패키지 업데이트, 빌드 설정 변경 등
+
+</br>
+
+## 개발 기간
+- 2023년 11월 28일 ~ 2023년 12월 17일

@@ -2,7 +2,7 @@ import "./App.css";
 import Header from "./component/Header.js";
 import TodoEditor from "./component/TodoEditor.js";
 import TodoList from "./component/TodoList.js";
-import { useReducer, useRef } from "react";
+import { useCallback, useReducer, useRef } from "react";
 
 const mockTodo = [
   {
@@ -13,12 +13,6 @@ const mockTodo = [
   },
   {
     id: 1,
-    isDone: false,
-    content: "태규 만나기",
-    createdDate: new Date().getTime(),
-  },
-  {
-    id: 2,
     isDone: true,
     content: "컴활 공부하기",
     createdDate: new Date().getTime(),
@@ -65,19 +59,19 @@ function App() {
     idRef.current += 1;
   };
 
-  const onUpdate = (targetId) => {
+  const onUpdate = useCallback((targetId) => {
     dispatch({
       type: "UPDATE",
       targetId,
     });
-  };
+  }, []);
 
-  const onDelete = (targetId) => {
+  const onDelete = useCallback((targetId) => {
     dispatch({
       type: "DELETE",
       targetId,
     });
-  };
+  }, []);
 
   return (
     <div className="App">

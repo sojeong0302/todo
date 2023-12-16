@@ -2,22 +2,22 @@ import "./App.css";
 import Header from "./component/Header.js";
 import TodoEditor from "./component/TodoEditor.js";
 import TodoList from "./component/TodoList.js";
-import { useCallback, useReducer, useRef } from "react";
+import React, { useMemo, useCallback, useReducer, useRef } from "react";
 
-const mockTodo = [
-  {
-    id: 0,
-    isDone: false,
-    content: "React 공부하기",
-    createdDate: new Date().getTime(),
-  },
-  {
-    id: 1,
-    isDone: true,
-    content: "컴활 공부하기",
-    createdDate: new Date().getTime(),
-  },
-];
+// const mockTodo = [
+//   {
+//     id: 0,
+//     isDone: false,
+//     content: "React 공부하기",
+//     createdDate: new Date().getTime(),
+//   },
+//   {
+//     id: 1,
+//     isDone: true,
+//     content: "컴활 공부하기",
+//     createdDate: new Date().getTime(),
+//   },
+// ];
 
 function reducer(state, action) {
   switch (action.type) {
@@ -42,8 +42,12 @@ function reducer(state, action) {
   }
 }
 
+export const TodoStateContext = React.createContext();
+export const TodoDispatchContext = React.createContext();
+
 function App() {
-  const [todo, dispatch] = useReducer(reducer, mockTodo);
+  // const [todo, dispatch] = useReducer(reducer, mockTodo);
+  const [todo, dispatch] = useReducer(reducer, []);
   const idRef = useRef(3);
 
   const onCreate = (content) => {
@@ -73,11 +77,19 @@ function App() {
     });
   }, []);
 
+  const memoizedDispatches = useMemo(() => {
+    return { onCreate, onUpdate, onDelete };
+  }, []);
+
   return (
     <div className="App">
       <Header />
-      <TodoEditor onCreate={onCreate} />
-      <TodoList todo={todo} onUpdate={onUpdate} onDelete={onDelete} />
+      <TodoStateContext.Provider value={todo}>
+        <TodoDispatchContext.Provider value={memoizedDispatches}>
+          <TodoEditor />
+          <TodoList />
+        </TodoDispatchContext.Provider>
+      </TodoStateContext.Provider>
     </div>
   );
 }

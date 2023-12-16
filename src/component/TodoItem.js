@@ -25,4 +25,4 @@ const TodoItem = ({ id, content, isDone, createdDate, onUpdate, onDelete }) => {
   );
 };
 
-export default TodoItem;
+export default React.memo(TodoItem);

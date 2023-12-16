@@ -1,7 +1,7 @@
 # 💜 todo
 
 ## Site
-<a href="https://velog.io/@zaman17"><img src="https://img.shields.io/badge/todo-ABA5D1?style=flat-square&logo=checkmarx&logoColor=white"/></a>
+<a href="https://todo-d5859.web.app/"><img src="https://img.shields.io/badge/todo-ABA5D1?style=flat-square&logo=checkmarx&logoColor=white"/></a>
 
 </br>
  
